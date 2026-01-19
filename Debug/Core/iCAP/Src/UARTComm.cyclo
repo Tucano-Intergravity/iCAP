@@ -1,0 +1,17 @@
+../Core/iCAP/Src/UARTComm.c:89:17:GetChannelIndex	6
+../Core/iCAP/Src/UARTComm.c:101:13:InitChannelMapping	1
+../Core/iCAP/Src/UARTComm.c:123:16:Verify_i400_Checksum	4
+../Core/iCAP/Src/UARTComm.c:147:16:Verify_i400_Checksum_Linear	1
+../Core/iCAP/Src/UARTComm.c:153:13:ParseI400Packet	6
+../Core/iCAP/Src/UARTComm.c:229:13:ProcessDmaBuffer	26
+../Core/iCAP/Src/UARTComm.c:312:6:UART_Init	5
+../Core/iCAP/Src/UARTComm.c:366:15:UART_Transmit	8
+../Core/iCAP/Src/UARTComm.c:401:6:UART_IsTransmitComplete	2
+../Core/iCAP/Src/UARTComm.c:412:10:UART_GetAvailableBytes	1
+../Core/iCAP/Src/UARTComm.c:420:10:UART_Receive	1
+../Core/iCAP/Src/UARTComm.c:430:6:UART_ClearBuffer	2
+../Core/iCAP/Src/UARTComm.c:450:6:UART_GetCompletedPacket	6
+../Core/iCAP/Src/UARTComm.c:481:6:UART_GetIMUData	6
+../Core/iCAP/Src/UARTComm.c:520:6:HAL_UARTEx_RxEventCallback	5
+../Core/iCAP/Src/UARTComm.c:536:6:HAL_UART_TxCpltCallback	3
+../Core/iCAP/Src/UARTComm.c:550:6:HAL_UART_ErrorCallback	6

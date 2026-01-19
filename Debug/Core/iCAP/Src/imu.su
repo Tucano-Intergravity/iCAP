@@ -1,0 +1,5 @@
+../Core/iCAP/Src/imu.c:22:10:IMU_CalculateChecksum	24	static
+../Core/iCAP/Src/imu.c:41:6:IMU_ParsePacket	40	static
+../Core/iCAP/Src/imu.c:99:6:IMU_IsValidMessageID	16	static
+../Core/iCAP/Src/imu.c:105:6:IMU_IsControlPacket	16	static
+../Core/iCAP/Src/imu.c:111:6:IMU_IsNavigationPacket	16	static

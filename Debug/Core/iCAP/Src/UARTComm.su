@@ -1,0 +1,17 @@
+../Core/iCAP/Src/UARTComm.c:89:17:GetChannelIndex	16	static
+../Core/iCAP/Src/UARTComm.c:101:13:InitChannelMapping	4	static
+../Core/iCAP/Src/UARTComm.c:123:16:Verify_i400_Checksum	24	static
+../Core/iCAP/Src/UARTComm.c:147:16:Verify_i400_Checksum_Linear	16	static
+../Core/iCAP/Src/UARTComm.c:153:13:ParseI400Packet	48	static
+../Core/iCAP/Src/UARTComm.c:229:13:ProcessDmaBuffer	88	static
+../Core/iCAP/Src/UARTComm.c:312:6:UART_Init	24	static
+../Core/iCAP/Src/UARTComm.c:366:15:UART_Transmit	24	static
+../Core/iCAP/Src/UARTComm.c:401:6:UART_IsTransmitComplete	24	static
+../Core/iCAP/Src/UARTComm.c:412:10:UART_GetAvailableBytes	16	static
+../Core/iCAP/Src/UARTComm.c:420:10:UART_Receive	16	static
+../Core/iCAP/Src/UARTComm.c:430:6:UART_ClearBuffer	24	static
+../Core/iCAP/Src/UARTComm.c:450:6:UART_GetCompletedPacket	24	static
+../Core/iCAP/Src/UARTComm.c:481:6:UART_GetIMUData	32	static
+../Core/iCAP/Src/UARTComm.c:520:6:HAL_UARTEx_RxEventCallback	24	static
+../Core/iCAP/Src/UARTComm.c:536:6:HAL_UART_TxCpltCallback	24	static
+../Core/iCAP/Src/UARTComm.c:550:6:HAL_UART_ErrorCallback	24	static
