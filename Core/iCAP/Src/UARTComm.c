@@ -81,7 +81,6 @@ static UART_Instance_t uart_instances[UART_CHANNEL_MAX];
 static uint16_t GetChannelIndex(uint16_t Channel);
 static void InitChannelMapping(void);
 static uint8_t Verify_i400_Checksum(uint8_t *pPacket, uint16_t length);
-static uint8_t Verify_i400_Checksum_Linear(uint8_t *pPacket, uint16_t length);
 static bool ParseI400Packet(uint16_t channel_idx, uint8_t *packet_data);
 static void ProcessDmaBuffer(uint16_t channel_idx);
 
@@ -141,12 +140,6 @@ static uint8_t Verify_i400_Checksum(uint8_t *pPacket, uint16_t length)
     
     /* Compare calculated sum with received checksum */
     return (sum == received_checksum) ? 1 : 0;
-}
-
-/* Legacy function name - for compatibility */
-static uint8_t Verify_i400_Checksum_Linear(uint8_t *pPacket, uint16_t length)
-{
-    return Verify_i400_Checksum(pPacket, length);
 }
 
 /* Parse i400 Navigation packet (0xA2) - wrapper for IMU_ParsePacket */
@@ -277,9 +270,6 @@ static void ProcessDmaBuffer(uint16_t channel_idx)
                     inst->packet_ready = true;
                     inst->packet_count++;
 
-                    /* Toggle PA2 to indicate valid IMU data reception */
-                    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_2);
-
                     /* Advance last_pos by full packet size */
                     inst->rx_dma_last_pos = (pos + IMU_PACKET_SIZE) % RX_DMA_BUFFER_SIZE;
                     available -= IMU_PACKET_SIZE;
@@ -407,75 +397,6 @@ bool UART_IsTransmitComplete(uint16_t Channel)
     
     UART_Instance_t *inst = &uart_instances[channel_idx];
     return !inst->tx_busy;
-}
-
-uint16_t UART_GetAvailableBytes(uint16_t Channel)
-{
-    /* For double buffering mode (UART4 IMU), this function is not used
-     * as data is processed directly in HAL callbacks */
-    (void)Channel;
-    return 0;
-}
-
-uint16_t UART_Receive(uint16_t Channel, uint8_t *buffer, uint16_t max_length)
-{
-    /* For double buffering mode (UART4 IMU), this function is not used
-     * as data is processed directly in HAL callbacks */
-    (void)Channel;
-    (void)buffer;
-    (void)max_length;
-    return 0;
-}
-
-void UART_ClearBuffer(uint16_t Channel)
-{
-    uint16_t channel_idx = GetChannelIndex(Channel);
-    if (channel_idx >= UART_CHANNEL_MAX) {
-        return;
-    }
-    
-    UART_Instance_t *inst = &uart_instances[channel_idx];
-    inst->imu_data_ready = false;
-    inst->packet_count = 0;
-    inst->sync_error_count = 0;
-    inst->checksum_error_count = 0;
-    inst->data_loss_count = 0;
-}
-
-/* Get completed packet from interrupt handler (non-blocking)
- * @param Channel: UART channel ID (should be UART_IMU)
- * @param packet: Pointer to buffer to store packet (must be at least 44 bytes)
- * @return true if new packet available, false otherwise
- */
-bool UART_GetCompletedPacket(uint16_t Channel, uint8_t *packet)
-{
-    uint16_t channel_idx = GetChannelIndex(Channel);
-    
-    /* Only available for UART_IMU (UART4) */
-    if (channel_idx != UART_CH_IMU || packet == NULL) {
-        return false;
-    }
-    
-    UART_Instance_t *inst = &uart_instances[channel_idx];
-    
-    if (!inst->initialized) {
-        return false;
-    }
-    
-    /* Check if new complete packet is available */
-    if (!inst->packet_ready) {
-        return false;
-    }
-    
-    /* Copy completed packet */
-    for (uint16_t i = 0; i < IMU_PACKET_SIZE; i++) {
-        packet[i] = inst->completed_packet[i];
-    }
-    
-    /* Clear ready flag */
-    inst->packet_ready = false;
-    
-    return true;
 }
 
 bool UART_GetIMUData(uint16_t Channel, IMU_Data_t *imu_data)

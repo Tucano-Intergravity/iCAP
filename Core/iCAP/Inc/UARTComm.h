@@ -34,8 +34,8 @@ typedef enum {
 
 /**
  * @brief Initialize UART channel
- * @param Channel: UART channel ID (UART_UMBILICAL, UART_RPI, etc.)
- * @param baudrate: Baudrate (9600, 115200, etc.)
+ * @param Channel: UART channel ID
+ * @param baudrate: Baudrate
  * @return true if successful, false otherwise
  */
 bool UART_Init(uint16_t Channel, uint32_t baudrate);
@@ -55,36 +55,6 @@ UART_Status_t UART_Transmit(uint16_t Channel, uint8_t *data, uint16_t length);
  * @return true if transmission complete, false if still transmitting
  */
 bool UART_IsTransmitComplete(uint16_t Channel);
-
-/**
- * @brief Get number of bytes available in receive buffer
- * @param Channel: UART channel ID
- * @return Number of bytes available
- */
-uint16_t UART_GetAvailableBytes(uint16_t Channel);
-
-/**
- * @brief Receive data from UART buffer (non-blocking)
- * @param Channel: UART channel ID
- * @param buffer: Pointer to receive buffer
- * @param max_length: Maximum length to read
- * @return Number of bytes actually received
- */
-uint16_t UART_Receive(uint16_t Channel, uint8_t *buffer, uint16_t max_length);
-
-/**
- * @brief Clear receive buffer for a channel
- * @param Channel: UART channel ID
- */
-void UART_ClearBuffer(uint16_t Channel);
-
-/**
- * @brief Get completed packet from interrupt handler (only for UART_IMU channel)
- * @param Channel: UART channel ID (should be UART_IMU)
- * @param packet: Pointer to buffer to store packet (must be at least 44 bytes)
- * @return true if new packet available, false otherwise
- */
-bool UART_GetCompletedPacket(uint16_t Channel, uint8_t *packet);
 
 /**
  * @brief Get decoded IMU data (only for UART_IMU channel)

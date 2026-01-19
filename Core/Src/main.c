@@ -164,54 +164,16 @@ Error_Handler();
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* UART Echo Test: Receive data and send back with "RCVD: " prefix */
-    uint16_t available = UART_GetAvailableBytes(UART_UMBILICAL);
-    
-    if (available > 0) {
-      uint8_t rx_buffer[256];
-      uint8_t tx_buffer[256 + 10];  // "RCVD: " (6 bytes) + data + "\r\n" (2 bytes)
-      
-      /* Read received data */
-//      uint16_t received = UART_Receive(UART_UMBILICAL, rx_buffer,
-//                                        (available < sizeof(rx_buffer)) ? available : sizeof(rx_buffer));
-      
-//      if (received > 0) {
-//        /* Wait for previous transmission to complete if busy */
-//        while (!UART_IsTransmitComplete(UART_UMBILICAL)) {
-//          HAL_Delay(1);
-//        }
-//
-//        /* Build response: "RCVD: " + received data + "\r\n" */
-//        memcpy(tx_buffer, "RCVD: ", 6);
-//        memcpy(&tx_buffer[6], rx_buffer, received);
-//        tx_buffer[6 + received] = '\r';
-//        tx_buffer[6 + received + 1] = '\n';
-//
-//        uint16_t tx_length = 6 + received + 2;
-//
-//        /* Transmit response */
-//        UART_Transmit(UART_UMBILICAL, tx_buffer, tx_length);
-//      }
-      HAL_Delay(1);
-    }
-    
     /* UART4 IMU Data Decoding - Get decoded IMU data from Honeywell i400 */
-    /* CRITICAL: Call UART_GetIMUData as frequently as possible to minimize data_loss_count
-     * This function calls ProcessDmaBuffer internally, which prevents buffer overflow */
-//    IMU_Data_t imu_data;
-//    if (UART_GetIMUData(UART_IMU, &imu_data)) {
-//      /* Decoded IMU data is available */
-//      /* Data fields:
-//       *   - imu_data.angular_rate_x/y/z (rad/s)
-//       *   - imu_data.linear_accel_x/y/z (m/s²)
-//       *   - imu_data.status_word
-//       *   - imu_data.delta_angle_x/y/z (rad)
-//       *   - imu_data.delta_velocity_x/y/z (m/s)
-//       *   - imu_data.timestamp (can be filled by caller)
-//       */
-//      /* TODO: Add your IMU data processing logic here */
-//    	imu_data.angular_rate_x = imu_data.angular_rate_x;
-//    }
+    /* CRITICAL: Call UART_GetIMUData as frequently as possible to minimize data_loss_count */
+    IMU_Data_t imu_data;
+    if (UART_GetIMUData(UART_IMU, &imu_data)) {
+      /* Toggle PA2 to indicate valid IMU data acquisition in main loop */
+      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_2);
+
+      /* Decoded IMU data is available */
+      /* TODO: Add your IMU data processing logic here */
+    }
     
     /* NOTE: HAL_Delay removed to maximize ProcessDmaBuffer call frequency
      * This helps reduce data_loss_count by processing incoming data more quickly
