@@ -8,19 +8,22 @@ C_SRCS += \
 ../Core/iCAP/Src/PowerControl.c \
 ../Core/iCAP/Src/SSRControl.c \
 ../Core/iCAP/Src/UARTComm.c \
-../Core/iCAP/Src/imu.c 
+../Core/iCAP/Src/imu.c \
+../Core/iCAP/Src/pt.c 
 
 OBJS += \
 ./Core/iCAP/Src/PowerControl.o \
 ./Core/iCAP/Src/SSRControl.o \
 ./Core/iCAP/Src/UARTComm.o \
-./Core/iCAP/Src/imu.o 
+./Core/iCAP/Src/imu.o \
+./Core/iCAP/Src/pt.o 
 
 C_DEPS += \
 ./Core/iCAP/Src/PowerControl.d \
 ./Core/iCAP/Src/SSRControl.d \
 ./Core/iCAP/Src/UARTComm.d \
-./Core/iCAP/Src/imu.d 
+./Core/iCAP/Src/imu.d \
+./Core/iCAP/Src/pt.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -30,7 +33,7 @@ Core/iCAP/Src/%.o Core/iCAP/Src/%.su Core/iCAP/Src/%.cyclo: ../Core/iCAP/Src/%.c
 clean: clean-Core-2f-iCAP-2f-Src
 
 clean-Core-2f-iCAP-2f-Src:
-	-$(RM) ./Core/iCAP/Src/PowerControl.cyclo ./Core/iCAP/Src/PowerControl.d ./Core/iCAP/Src/PowerControl.o ./Core/iCAP/Src/PowerControl.su ./Core/iCAP/Src/SSRControl.cyclo ./Core/iCAP/Src/SSRControl.d ./Core/iCAP/Src/SSRControl.o ./Core/iCAP/Src/SSRControl.su ./Core/iCAP/Src/UARTComm.cyclo ./Core/iCAP/Src/UARTComm.d ./Core/iCAP/Src/UARTComm.o ./Core/iCAP/Src/UARTComm.su ./Core/iCAP/Src/imu.cyclo ./Core/iCAP/Src/imu.d ./Core/iCAP/Src/imu.o ./Core/iCAP/Src/imu.su
+	-$(RM) ./Core/iCAP/Src/PowerControl.cyclo ./Core/iCAP/Src/PowerControl.d ./Core/iCAP/Src/PowerControl.o ./Core/iCAP/Src/PowerControl.su ./Core/iCAP/Src/SSRControl.cyclo ./Core/iCAP/Src/SSRControl.d ./Core/iCAP/Src/SSRControl.o ./Core/iCAP/Src/SSRControl.su ./Core/iCAP/Src/UARTComm.cyclo ./Core/iCAP/Src/UARTComm.d ./Core/iCAP/Src/UARTComm.o ./Core/iCAP/Src/UARTComm.su ./Core/iCAP/Src/imu.cyclo ./Core/iCAP/Src/imu.d ./Core/iCAP/Src/imu.o ./Core/iCAP/Src/imu.su ./Core/iCAP/Src/pt.cyclo ./Core/iCAP/Src/pt.d ./Core/iCAP/Src/pt.o ./Core/iCAP/Src/pt.su
 
 .PHONY: clean-Core-2f-iCAP-2f-Src
 
