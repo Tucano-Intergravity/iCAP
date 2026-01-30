@@ -64,6 +64,15 @@ bool UART_IsTransmitComplete(uint16_t Channel);
  */
 bool UART_GetIMUData(uint16_t Channel, IMU_Data_t *imu_data);
 
+/**
+ * @brief Receive data from UART buffer
+ * @param Channel: UART channel ID
+ * @param buffer: Pointer to destination buffer
+ * @param max_length: Maximum number of bytes to read
+ * @return uint16_t: Number of bytes actually read
+ */
+uint16_t UART_Receive(uint16_t Channel, uint8_t *buffer, uint16_t max_length);
+
 #else
 /* UART module not enabled - provide dummy implementations */
 

@@ -1,0 +1,5 @@
+../Core/iCAP/Src/tc.c:25:6:TC_Init	2
+../Core/iCAP/Src/tc.c:37:13:TC_ParseMAX31855	4
+../Core/iCAP/Src/tc.c:76:6:TC_Update	6
+../Core/iCAP/Src/tc.c:111:7:TC_GetTemperature	2
+../Core/iCAP/Src/tc.c:116:6:TC_IsHealthy	2

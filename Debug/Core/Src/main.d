@@ -30,13 +30,19 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/PowerControl.h \
  C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/iCAP_global.h \
  C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/SSRControl.h \
  C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/UARTComm.h \
- C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/imu.h
+ C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/imu.h \
+ C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/pt.h \
+ C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/tc.h
 ../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -69,6 +75,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
 C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/PowerControl.h:
@@ -76,3 +86,5 @@ C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/iCAP_global.h:
 C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/SSRControl.h:
 C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/UARTComm.h:
 C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/imu.h:
+C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/pt.h:
+C:/STM3INTERGRAVITY/iCAP_testproject/CM7/Core/iCAP/Inc/tc.h:
